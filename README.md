@@ -1,16 +1,20 @@
-# flutter_education
+# flutter-education
 
-Flutter education project
+В этой репозитории лежит исходный код приложнения на flutter, для показа новостей.
 
-## Getting Started
+# Функционал
 
-This project is a starting point for a Flutter application.
+Приложение содержит 2 экрана:
+1. Скролл-список новостей
+2. Подробно о новости 
 
-A few resources to get you started if this is your first Flutter project:
+Приложение получает данные с https://newsapi.org. Для получаемых новостей реализован json_serializable тип данных. С экрана (2) можно перейти на сайт новости.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+В приложении реализовано переключение светлой и тёмной темы.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Скриншоты экранов:
+
+![image](https://github.com/IWillBurn/flutter-education/assets/112109988/277d41d3-7ff4-4fc8-846e-0a2898573785)
+![image](https://github.com/IWillBurn/flutter-education/assets/112109988/3cfcb820-d350-4f74-9449-4eca75a9a17c)
+![image](https://github.com/IWillBurn/flutter-education/assets/112109988/e16f4cd1-8911-4e8c-b953-1a7bde417ab2)
+
