@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_education/domain/state/liked_cubit.dart';
-import '../../data/models/news_model.dart';
 import '../../domain/entities/news.dart';
-import '../../domain/state/articles_cubit.dart';
 import 'article_details_screen.dart';
 
 class FavoritesScreen extends StatelessWidget {

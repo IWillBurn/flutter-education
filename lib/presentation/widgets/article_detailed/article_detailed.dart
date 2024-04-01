@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../../data/models/news_model.dart';
 import '../../../domain/entities/news.dart';
 import '__image/article_detailed__image.dart';
 

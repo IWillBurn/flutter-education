@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_education/domain/state/articles_cubit.dart';
 import 'package:flutter_education/domain/state/liked_cubit.dart';
 import 'package:flutter_education/presentation/screens/favorites_screen.dart';
-import 'package:flutter_education/presentation/themes/theme_changer.dart';
 import 'internal/settings.dart';
 import 'presentation/screens/news_screen.dart';
 
@@ -13,7 +12,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
               FavoritesScreen(),
             ],
           ),
-          bottomNavigationBar: new SizedBox(
+          bottomNavigationBar: SizedBox(
             height: appBar.preferredSize.height,
             child: appBar,
           ),

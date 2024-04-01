@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-
-import '../../data/models/news_model.dart';
 import '../../domain/entities/news.dart';
 
 class ArticleDetailsScreen extends StatelessWidget {

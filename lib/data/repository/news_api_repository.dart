@@ -1,4 +1,3 @@
-import 'package:flutter_education/data/models/news_model.dart';
 import 'package:flutter_education/domain/entities/news.dart';
 import 'package:injectable/injectable.dart';
 

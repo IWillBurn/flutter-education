@@ -1,6 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../internal/repositories.dart';
-import '../../internal/settings.dart';
 import '../entities/news.dart';
 
 class LikedCubit extends Cubit<Map<String, News>> {
@@ -15,12 +13,10 @@ class LikedCubit extends Cubit<Map<String, News>> {
     if (newState[news.title] != null) {
       String title = news.title ?? "-";
       newState.remove(title);
-      print("unlike");
     }
     else{
       String title = news.title ?? "-";
       newState[title] = news;
-      print("like");
     }
     emit(newState);
   }

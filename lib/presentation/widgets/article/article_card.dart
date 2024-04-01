@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_education/data/models/news_model.dart';
 
 import '../../../domain/entities/news.dart';
 

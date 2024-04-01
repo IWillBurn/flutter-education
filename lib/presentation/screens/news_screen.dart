@@ -5,8 +5,6 @@ import '../../domain/entities/news.dart';
 import '../../domain/state/liked_cubit.dart';
 import 'article_details_screen.dart';
 
-import 'package:http/http.dart' as http;
-
 class NewsScreen extends StatelessWidget {
 
   const NewsScreen({super.key});
@@ -30,7 +28,6 @@ class NewsScreen extends StatelessWidget {
         builder: (context) {
           final stateArticles = context.watch<ArticlesCubit>().state;
           final stateLiked = context.watch<LikedCubit>().state;
-          print(stateLiked);
             return ListView.separated(
               itemCount: stateArticles.length,
               separatorBuilder: (BuildContext context, int index) {
