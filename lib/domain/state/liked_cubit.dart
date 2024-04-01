@@ -7,19 +7,22 @@ class LikedCubit extends Cubit<Map<String, News>> {
   LikedCubit() : super({});
 
   void changeLikeNews(News news)  {
+    Map<String, News> newState = {};
+    newState.addAll(state);
     if (news.title == null) {
       return;
     }
-    if (state[news.title] != null) {
+    if (newState[news.title] != null) {
       String title = news.title ?? "-";
-      state.remove(title);
-      news.isFavorite = true;
+      newState.remove(title);
+      print("unlike");
     }
     else{
       String title = news.title ?? "-";
-      state[title] = news;
-      news.isFavorite = false;
+      newState[title] = news;
+      print("like");
     }
+    emit(newState);
   }
 
 }

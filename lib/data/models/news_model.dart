@@ -63,7 +63,6 @@ class NewsModel {
       urlToImage: urlToImage,
       publishedAt: publishedAt,
       content: content,
-      isFavorite : false,
     );
   }
 }

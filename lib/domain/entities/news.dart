@@ -8,7 +8,6 @@ class News {
   String? urlToImage;
   String? publishedAt;
   String? content;
-  bool isFavorite;
 
   News({
     required this.author,
@@ -18,6 +17,5 @@ class News {
     this.urlToImage,
     required this.publishedAt,
     required this.content,
-    this.isFavorite = false,
   });
 }

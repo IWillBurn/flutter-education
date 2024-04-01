@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
       home: MultiBlocProvider(
         providers: [
           BlocProvider(
-              create: (BuildContext context) => ArticlesCubit()),
+              create: (BuildContext context) => ArticlesCubit(),),
           BlocProvider(
-              create: (BuildContext context) => LikedCubit())
+              create: (BuildContext context) => LikedCubit(),),
         ],
         child: DefaultTabController(
         length: 2, // Количество вкладок

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_education/domain/state/liked_cubit.dart';
 import '../../data/models/news_model.dart';
 import '../../domain/entities/news.dart';
+import '../../domain/state/articles_cubit.dart';
 import 'article_details_screen.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -24,16 +25,17 @@ class FavoritesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Favorite'),
       ),
-      body: BlocBuilder<LikedCubit, Map<String, News>>(
-        builder: (context, state) {
+      body: Builder(
+        builder: (context) {
+          final stateLiked = context.watch<LikedCubit>().state;
           return ListView.separated(
-            itemCount: state.length,
+            itemCount: stateLiked.length,
             separatorBuilder: (BuildContext context, int index) {
               return const SizedBox(height: 16);
             },
             itemBuilder: (context, index) {
-              final keys = state.keys.toList();
-              final article = state[keys[index]];
+              final keys = stateLiked.keys.toList();
+              final article = stateLiked[keys[index]];
               if (article == null) {
                 return null;
               }
@@ -54,11 +56,11 @@ class FavoritesScreen extends StatelessWidget {
                       onTap: () => _navigateToDetailsPage(article, context),
                     ),
                     IconButton(
-                      icon: const Icon(
-                        Icons.favorite_border,
+                      icon: Icon(
+                        stateLiked[article.title] != null ? Icons.favorite_sharp : Icons.favorite_border,
                         color: Colors.red,
                       ),
-                      onPressed: () => (),
+                      onPressed: () => context.read<LikedCubit>().changeLikeNews(article),
                     ),
                   ],
                 );

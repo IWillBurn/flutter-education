@@ -26,15 +26,18 @@ class NewsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('News'),
       ),
-      body: BlocBuilder<ArticlesCubit, List<News>>(
-        builder: (context, state) {
+      body: Builder(
+        builder: (context) {
+          final stateArticles = context.watch<ArticlesCubit>().state;
+          final stateLiked = context.watch<LikedCubit>().state;
+          print(stateLiked);
             return ListView.separated(
-              itemCount: state.length,
+              itemCount: stateArticles.length,
               separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(height: 16);
               },
               itemBuilder: (context, index) {
-                final article = state[index];
+                final article = stateArticles[index];
                 final title = article.title ?? 'No Title';
                 final description = article.description ?? 'No Description';
                 if (article.title != null) {
@@ -53,7 +56,7 @@ class NewsScreen extends StatelessWidget {
                       ),
                       IconButton(
                         icon: Icon(
-                          article.isFavorite ? Icons.favorite_border : Icons.favorite_sharp,
+                          stateLiked[article.title] != null ? Icons.favorite_sharp : Icons.favorite_border,
                           color: Colors.red,
                         ),
                         onPressed: () => context.read<LikedCubit>().changeLikeNews(article),
