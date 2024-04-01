@@ -9,7 +9,8 @@ class NewsApiService {
   final String _apiKey = "b265ce05bedf498fadd45fb87586e316";
 
   Future<List<NewsModel>> getArticles() async {
-    final response = await http.get(Uri.parse("$_baseUrl?country=us&apiKey=$_apiKey"));
+    final response =
+        await http.get(Uri.parse("$_baseUrl?country=us&apiKey=$_apiKey"));
     if (response.statusCode == 200) {
       final Map<String, dynamic> jsonData = json.decode(response.body);
       final List<dynamic> newsList = jsonData['articles'];

@@ -12,7 +12,8 @@ class ArticleDetailedImage extends StatelessWidget {
       height: 200,
       width: double.infinity,
       fit: BoxFit.cover,
-      errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+      errorBuilder:
+          (BuildContext context, Object error, StackTrace? stackTrace) {
         return Container(
           color: Colors.grey,
           height: 200,

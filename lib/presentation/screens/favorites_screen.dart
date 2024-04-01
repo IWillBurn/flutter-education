@@ -5,7 +5,6 @@ import '../../domain/entities/news.dart';
 import 'article_details_screen.dart';
 
 class FavoritesScreen extends StatelessWidget {
-
   const FavoritesScreen({super.key});
 
   void _navigateToDetailsPage(News article, BuildContext context) {
@@ -45,28 +44,40 @@ class FavoritesScreen extends StatelessWidget {
                     ListTile(
                       title: Text(
                         title,
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: Theme.of(context).textTheme.displayMedium?.fontFamily),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: Theme.of(context)
+                                .textTheme
+                                .displayMedium
+                                ?.fontFamily),
                       ),
                       subtitle: Text(
                         description,
-                        style: TextStyle(fontSize: 16, fontFamily: Theme.of(context).textTheme.displaySmall?.fontFamily),
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: Theme.of(context)
+                                .textTheme
+                                .displaySmall
+                                ?.fontFamily),
                       ),
                       onTap: () => _navigateToDetailsPage(article, context),
                     ),
                     IconButton(
                       icon: Icon(
-                        stateLiked[article.title] != null ? Icons.favorite_sharp : Icons.favorite_border,
+                        stateLiked[article.title] != null
+                            ? Icons.favorite_sharp
+                            : Icons.favorite_border,
                         color: Colors.red,
                       ),
-                      onPressed: () => context.read<LikedCubit>().changeLikeNews(article),
+                      onPressed: () =>
+                          context.read<LikedCubit>().changeLikeNews(article),
                     ),
                   ],
                 );
-              }
-              else{
+              } else {
                 return null;
               }
-
             },
           );
         },

@@ -9,10 +9,8 @@ class ArticlesCubit extends Cubit<List<News>> {
   }
 
   Future<void> getNews() async {
-    emit(await getIt
-        .get<Repositories>()
-        .newsRepository
-        .getArticles(),);
+    emit(
+      await getIt.get<Repositories>().newsRepository.getArticles(),
+    );
   }
-
 }

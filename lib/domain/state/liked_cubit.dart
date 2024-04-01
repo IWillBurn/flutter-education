@@ -4,7 +4,7 @@ import '../entities/news.dart';
 class LikedCubit extends Cubit<Map<String, News>> {
   LikedCubit() : super({});
 
-  void changeLikeNews(News news)  {
+  void changeLikeNews(News news) {
     Map<String, News> newState = {};
     newState.addAll(state);
     if (news.title == null) {
@@ -13,12 +13,10 @@ class LikedCubit extends Cubit<Map<String, News>> {
     if (newState[news.title] != null) {
       String title = news.title ?? "-";
       newState.remove(title);
-    }
-    else{
+    } else {
       String title = news.title ?? "-";
       newState[title] = news;
     }
     emit(newState);
   }
-
 }

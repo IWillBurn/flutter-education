@@ -3,10 +3,10 @@ import 'package:flutter_education/presentation/themes/themes.dart';
 
 class ThemeChanger extends StatefulWidget {
   final Widget Function(
-      BuildContext context,
-      ThemeData theme,
-      Function(ThemeData) changeTheme,
-      ) builder;
+    BuildContext context,
+    ThemeData theme,
+    Function(ThemeData) changeTheme,
+  ) builder;
 
   const ThemeChanger({super.key, required this.builder});
 

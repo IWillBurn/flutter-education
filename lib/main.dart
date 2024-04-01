@@ -17,36 +17,39 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
-        bottom: const TabBar(
-          tabs: [
-            Tab(icon: Icon(Icons.import_contacts)),
-            Tab(icon: Icon(Icons.favorite_sharp)),
-          ],
-     ),);
+      bottom: const TabBar(
+        tabs: [
+          Tab(icon: Icon(Icons.import_contacts)),
+          Tab(icon: Icon(Icons.favorite_sharp)),
+        ],
+      ),
+    );
     return MaterialApp(
       title: 'News App',
       home: MultiBlocProvider(
         providers: [
           BlocProvider(
-              create: (BuildContext context) => ArticlesCubit(),),
+            create: (BuildContext context) => ArticlesCubit(),
+          ),
           BlocProvider(
-              create: (BuildContext context) => LikedCubit(),),
+            create: (BuildContext context) => LikedCubit(),
+          ),
         ],
         child: DefaultTabController(
-        length: 2, // Количество вкладок
-        child: Scaffold(
-          body: const TabBarView(
-            children: [
-              NewsScreen(),
-              FavoritesScreen(),
-            ],
-          ),
-          bottomNavigationBar: SizedBox(
-            height: appBar.preferredSize.height,
-            child: appBar,
+          length: 2, // Количество вкладок
+          child: Scaffold(
+            body: const TabBarView(
+              children: [
+                NewsScreen(),
+                FavoritesScreen(),
+              ],
+            ),
+            bottomNavigationBar: SizedBox(
+              height: appBar.preferredSize.height,
+              child: appBar,
+            ),
           ),
         ),
-      ),
       ),
     );
   }

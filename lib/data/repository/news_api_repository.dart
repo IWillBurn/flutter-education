@@ -6,7 +6,6 @@ import '../api/services/news_api_service.dart';
 
 @Injectable(as: NewsRepository)
 class NewsApiRepository implements NewsRepository {
-
   final NewsApiService apiService;
   const NewsApiRepository({required this.apiService});
 

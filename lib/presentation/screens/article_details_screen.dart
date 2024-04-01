@@ -33,7 +33,8 @@ class ArticleDetailsScreen extends StatelessWidget {
                   height: 200,
                   width: double.infinity,
                   fit: BoxFit.cover,
-                  errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+                  errorBuilder: (BuildContext context, Object error,
+                      StackTrace? stackTrace) {
                     return Container(
                       color: Colors.grey,
                       height: 200,
@@ -45,37 +46,61 @@ class ArticleDetailsScreen extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 article.title ?? 'No title',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: Theme.of(context).textTheme.displayMedium?.fontFamily),
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily:
+                        Theme.of(context).textTheme.displayMedium?.fontFamily),
               ),
               const SizedBox(height: 4),
               Text(
                 'Published at: ${article.publishedAt ?? 'Unknown'}',
-                style: TextStyle(fontSize: 12, fontFamily: Theme.of(context).textTheme.displaySmall?.fontFamily),
+                style: TextStyle(
+                    fontSize: 12,
+                    fontFamily:
+                        Theme.of(context).textTheme.displaySmall?.fontFamily),
               ),
               const SizedBox(height: 4),
               Text(
                 'Author: ${article.author ?? 'Unknown'}',
-                style: TextStyle(fontSize: 16, fontFamily: Theme.of(context).textTheme.displaySmall?.fontFamily),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily:
+                        Theme.of(context).textTheme.displaySmall?.fontFamily),
               ),
               const SizedBox(height: 16),
               Text(
                 'Description:',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: Theme.of(context).textTheme.displayMedium?.fontFamily),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    fontFamily:
+                        Theme.of(context).textTheme.displayMedium?.fontFamily),
               ),
               const SizedBox(height: 4),
               Text(
                 article.description ?? 'No Description',
-                style: TextStyle(fontSize: 16, fontFamily: Theme.of(context).textTheme.displaySmall?.fontFamily),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily:
+                        Theme.of(context).textTheme.displaySmall?.fontFamily),
               ),
               const SizedBox(height: 16),
               Text(
                 'Content:',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: Theme.of(context).textTheme.displayMedium?.fontFamily),
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    fontFamily:
+                        Theme.of(context).textTheme.displayMedium?.fontFamily),
               ),
               const SizedBox(height: 4),
               Text(
                 article.content ?? 'No Content',
-                style: TextStyle(fontSize: 16, fontFamily: Theme.of(context).textTheme.displaySmall?.fontFamily),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily:
+                        Theme.of(context).textTheme.displaySmall?.fontFamily),
               ),
               const SizedBox(height: 16),
               if (article.url != null)
