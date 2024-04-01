@@ -1,22 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
-import '../../dto/news.dart';
-import '__image/article_detailed__image.dart';
+import '../../data/models/news_model.dart';
+import '../../domain/entities/news.dart';
 
-class ArticleDetailed extends StatelessWidget {
+class ArticleDetailsScreen extends StatelessWidget {
   final News article;
 
-  const ArticleDetailed({super.key, required this.article});
+  const ArticleDetailsScreen({super.key, required this.article});
+
+  _launchURL(String url) async {
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      throw 'Не удалось открыть ссылку $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(article.title ?? 'No Title'),
+      ),
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ArticleDetailedImage(imageUrl: article.urlToImage),
+              if (article.urlToImage != null)
+                Image.network(
+                  article.urlToImage ?? "",
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+                    return Container(
+                      color: Colors.grey,
+                      height: 200,
+                      width: double.infinity,
+                      child: const Icon(Icons.error, color: Colors.white),
+                    );
+                  },
+                ),
               const SizedBox(height: 16),
               Text(
                 article.title ?? 'No title',
@@ -40,7 +67,7 @@ class ArticleDetailed extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 article.description ?? 'No Description',
-                style: TextStyle(fontSize: 16, fontFamily: Theme.of(context).textTheme.displayMedium?.fontFamily),
+                style: TextStyle(fontSize: 16, fontFamily: Theme.of(context).textTheme.displaySmall?.fontFamily),
               ),
               const SizedBox(height: 16),
               Text(
@@ -52,9 +79,23 @@ class ArticleDetailed extends StatelessWidget {
                 article.content ?? 'No Content',
                 style: TextStyle(fontSize: 16, fontFamily: Theme.of(context).textTheme.displaySmall?.fontFamily),
               ),
+              const SizedBox(height: 16),
+              if (article.url != null)
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (article.url != null) {
+                        _launchURL(article.url ?? "");
+                      }
+                    },
+                    child: const Text('Read More'),
+                  ),
+                ),
             ],
           ),
         ),
+      ),
     );
   }
 }

@@ -1,26 +1,28 @@
 import 'dart:convert';
 
-class News {
-  String? author;
-  String? title;
-  String? description;
-  String? url;
-  String? urlToImage;
-  String? publishedAt;
-  String? content;
+import '../../domain/entities/news.dart';
 
-  News({
+class NewsModel {
+  final String? author;
+  final String? title;
+  final String? description;
+  final String? url;
+  final String? urlToImage;
+  final String? publishedAt;
+  final String? content;
+
+  NewsModel({
     required this.author,
     required this.title,
-    this.description,
+    required this.description,
     required this.url,
-    this.urlToImage,
+    required this.urlToImage,
     required this.publishedAt,
     required this.content,
   });
 
-  factory News.fromJson(Map<String, dynamic> json) {
-    return News(
+  factory NewsModel.fromJson(Map<String, dynamic> json) {
+    return NewsModel(
       author: json['author'] ?? "",
       title: json['title'] ?? "",
       description: json['description'] ?? "",
@@ -47,8 +49,21 @@ class News {
     return jsonEncode(toJson());
   }
 
-  factory News.fromJsonString(String jsonString) {
+  factory NewsModel.fromJsonString(String jsonString) {
     Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-    return News.fromJson(jsonMap);
+    return NewsModel.fromJson(jsonMap);
+  }
+
+  News fromModel() {
+    return News(
+      author: author,
+      title: title,
+      description: description,
+      url: url,
+      urlToImage: urlToImage,
+      publishedAt: publishedAt,
+      content: content,
+      isFavorite : false,
+    );
   }
 }

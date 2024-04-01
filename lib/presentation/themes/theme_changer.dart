@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_education/themes/themes.dart';
+import 'package:flutter_education/presentation/themes/themes.dart';
 
 class ThemeChanger extends StatefulWidget {
   final Widget Function(
