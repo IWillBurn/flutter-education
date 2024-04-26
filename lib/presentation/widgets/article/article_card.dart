@@ -15,17 +15,17 @@ class ArticleCard extends StatelessWidget {
           title: Text(
             article.title ?? 'No Title',
             style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontFamily:
-                    Theme.of(context).textTheme.displayMedium?.fontFamily,),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              fontFamily: Theme.of(context).textTheme.displayMedium?.fontFamily,
+            ),
           ),
           subtitle: Text(
             article.description ?? 'No Description',
             style: TextStyle(
-                fontSize: 16,
-                fontFamily:
-                    Theme.of(context).textTheme.displaySmall?.fontFamily,),
+              fontSize: 16,
+              fontFamily: Theme.of(context).textTheme.displaySmall?.fontFamily,
+            ),
           ),
           onTap: () => (),
         ),

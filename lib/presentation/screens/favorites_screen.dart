@@ -45,21 +45,23 @@ class FavoritesScreen extends StatelessWidget {
                       title: Text(
                         title,
                         style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: Theme.of(context)
-                                .textTheme
-                                .displayMedium
-                                ?.fontFamily,),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: Theme.of(context)
+                              .textTheme
+                              .displayMedium
+                              ?.fontFamily,
+                        ),
                       ),
                       subtitle: Text(
                         description,
                         style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: Theme.of(context)
-                                .textTheme
-                                .displaySmall
-                                ?.fontFamily,),
+                          fontSize: 16,
+                          fontFamily: Theme.of(context)
+                              .textTheme
+                              .displaySmall
+                              ?.fontFamily,
+                        ),
                       ),
                       onTap: () => _navigateToDetailsPage(article, context),
                     ),

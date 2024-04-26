@@ -46,11 +46,12 @@ class NewsScreen extends StatelessWidget {
                       article = stateArticles[index];
                     } else {
                       article = News(
-                          author: null,
-                          title: null,
-                          url: null,
-                          publishedAt: null,
-                          content: null,);
+                        author: null,
+                        title: null,
+                        url: null,
+                        publishedAt: null,
+                        content: null,
+                      );
                     }
                     final title = article.title ?? 'No Title';
                     final description = article.description ?? 'No Description';
@@ -61,21 +62,23 @@ class NewsScreen extends StatelessWidget {
                             title: Text(
                               title,
                               style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: Theme.of(context)
-                                      .textTheme
-                                      .displayMedium
-                                      ?.fontFamily,),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: Theme.of(context)
+                                    .textTheme
+                                    .displayMedium
+                                    ?.fontFamily,
+                              ),
                             ),
                             subtitle: Text(
                               description,
                               style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall
-                                      ?.fontFamily,),
+                                fontSize: 16,
+                                fontFamily: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall
+                                    ?.fontFamily,
+                              ),
                             ),
                             onTap: () =>
                                 _navigateToDetailsPage(article, context),
@@ -87,8 +90,11 @@ class NewsScreen extends StatelessWidget {
                                   stateLiked[article.title] != null ? 0.5 : 1,
                               end: stateLiked[article.title] != null ? 1 : 0.5,
                             ),
-                            builder: (BuildContext context, double value,
-                                Widget? child,) {
+                            builder: (
+                              BuildContext context,
+                              double value,
+                              Widget? child,
+                            ) {
                               return Opacity(opacity: value, child: child);
                             },
                             child: IconButton(
