@@ -31,17 +31,17 @@ class NewsScreen extends StatelessWidget {
                 floating: true,
                 actions: [
                   IconButton(
-                    icon: Icon(Icons.search),
+                    icon: const Icon(Icons.search),
                     onPressed: () {},
                   ),
                 ],
               ),
               SliverPadding(
-                padding: EdgeInsets.symmetric(vertical: 16),
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 sliver: SliverList(
                   delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
-                    var article;
+                    News article;
                     if (stateArticles.length > index) {
                       article = stateArticles[index];
                     } else {
@@ -50,7 +50,7 @@ class NewsScreen extends StatelessWidget {
                           title: null,
                           url: null,
                           publishedAt: null,
-                          content: null);
+                          content: null,);
                     }
                     final title = article.title ?? 'No Title';
                     final description = article.description ?? 'No Description';
@@ -66,7 +66,7 @@ class NewsScreen extends StatelessWidget {
                                   fontFamily: Theme.of(context)
                                       .textTheme
                                       .displayMedium
-                                      ?.fontFamily),
+                                      ?.fontFamily,),
                             ),
                             subtitle: Text(
                               description,
@@ -75,20 +75,20 @@ class NewsScreen extends StatelessWidget {
                                   fontFamily: Theme.of(context)
                                       .textTheme
                                       .displaySmall
-                                      ?.fontFamily),
+                                      ?.fontFamily,),
                             ),
                             onTap: () =>
                                 _navigateToDetailsPage(article, context),
                           ),
                           TweenAnimationBuilder(
-                            duration: Duration(milliseconds: 500),
+                            duration: const Duration(milliseconds: 500),
                             tween: Tween<double>(
                               begin:
                                   stateLiked[article.title] != null ? 0.5 : 1,
                               end: stateLiked[article.title] != null ? 1 : 0.5,
                             ),
                             builder: (BuildContext context, double value,
-                                Widget? child) {
+                                Widget? child,) {
                               return Opacity(opacity: value, child: child);
                             },
                             child: IconButton(

@@ -22,7 +22,7 @@ class ArticleDetailsScreen extends StatelessWidget {
         title: Text(article.title ?? 'No Title'),
       ),
       body: TweenAnimationBuilder(
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         tween: Tween<double>(begin: 0, end: 1),
         builder: (BuildContext context, double value, Widget? child) {
           return Opacity(opacity: value, child: child);
@@ -40,7 +40,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                     width: double.infinity,
                     fit: BoxFit.cover,
                     errorBuilder: (BuildContext context, Object error,
-                        StackTrace? stackTrace) {
+                        StackTrace? stackTrace,) {
                       return Container(
                         color: Colors.grey,
                         height: 200,
@@ -58,7 +58,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                       fontFamily: Theme.of(context)
                           .textTheme
                           .displayMedium
-                          ?.fontFamily),
+                          ?.fontFamily,),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -66,7 +66,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 12,
                       fontFamily:
-                          Theme.of(context).textTheme.displaySmall?.fontFamily),
+                          Theme.of(context).textTheme.displaySmall?.fontFamily,),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -74,7 +74,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 16,
                       fontFamily:
-                          Theme.of(context).textTheme.displaySmall?.fontFamily),
+                          Theme.of(context).textTheme.displaySmall?.fontFamily,),
                 ),
                 const SizedBox(height: 16),
                 Text(
@@ -85,7 +85,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                       fontFamily: Theme.of(context)
                           .textTheme
                           .displayMedium
-                          ?.fontFamily),
+                          ?.fontFamily,),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -93,7 +93,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 16,
                       fontFamily:
-                          Theme.of(context).textTheme.displaySmall?.fontFamily),
+                          Theme.of(context).textTheme.displaySmall?.fontFamily,),
                 ),
                 const SizedBox(height: 16),
                 Text(
@@ -104,7 +104,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                       fontFamily: Theme.of(context)
                           .textTheme
                           .displayMedium
-                          ?.fontFamily),
+                          ?.fontFamily,),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -112,7 +112,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 16,
                       fontFamily:
-                          Theme.of(context).textTheme.displaySmall?.fontFamily),
+                          Theme.of(context).textTheme.displaySmall?.fontFamily,),
                 ),
                 const SizedBox(height: 16),
                 if (article.url != null)

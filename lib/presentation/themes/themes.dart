@@ -5,7 +5,7 @@ final ThemeData lightTheme = ThemeData(
   colorScheme: const ColorScheme.light(primary: Colors.blue),
   textTheme: const TextTheme(
       displayMedium: TextStyle(fontFamily: "arial"),
-      displaySmall: TextStyle(fontFamily: "arial")),
+      displaySmall: TextStyle(fontFamily: "arial"),),
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -13,5 +13,5 @@ final ThemeData darkTheme = ThemeData(
   colorScheme: const ColorScheme.dark(primary: Colors.indigo),
   textTheme: const TextTheme(
       displayMedium: TextStyle(fontFamily: "arial"),
-      displaySmall: TextStyle(fontFamily: "arial")),
+      displaySmall: TextStyle(fontFamily: "arial"),),
 );

@@ -50,7 +50,7 @@ class FavoritesScreen extends StatelessWidget {
                             fontFamily: Theme.of(context)
                                 .textTheme
                                 .displayMedium
-                                ?.fontFamily),
+                                ?.fontFamily,),
                       ),
                       subtitle: Text(
                         description,
@@ -59,7 +59,7 @@ class FavoritesScreen extends StatelessWidget {
                             fontFamily: Theme.of(context)
                                 .textTheme
                                 .displaySmall
-                                ?.fontFamily),
+                                ?.fontFamily,),
                       ),
                       onTap: () => _navigateToDetailsPage(article, context),
                     ),

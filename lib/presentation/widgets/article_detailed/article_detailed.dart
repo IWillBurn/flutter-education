@@ -23,7 +23,7 @@ class ArticleDetailed extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontFamily:
-                      Theme.of(context).textTheme.displayMedium?.fontFamily),
+                      Theme.of(context).textTheme.displayMedium?.fontFamily,),
             ),
             const SizedBox(height: 4),
             Text(
@@ -31,7 +31,7 @@ class ArticleDetailed extends StatelessWidget {
               style: TextStyle(
                   fontSize: 12,
                   fontFamily:
-                      Theme.of(context).textTheme.displaySmall?.fontFamily),
+                      Theme.of(context).textTheme.displaySmall?.fontFamily,),
             ),
             const SizedBox(height: 4),
             Text(
@@ -39,7 +39,7 @@ class ArticleDetailed extends StatelessWidget {
               style: TextStyle(
                   fontSize: 16,
                   fontFamily:
-                      Theme.of(context).textTheme.displaySmall?.fontFamily),
+                      Theme.of(context).textTheme.displaySmall?.fontFamily,),
             ),
             const SizedBox(height: 16),
             Text(
@@ -48,7 +48,7 @@ class ArticleDetailed extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   fontFamily:
-                      Theme.of(context).textTheme.displayMedium?.fontFamily),
+                      Theme.of(context).textTheme.displayMedium?.fontFamily,),
             ),
             const SizedBox(height: 4),
             Text(
@@ -56,7 +56,7 @@ class ArticleDetailed extends StatelessWidget {
               style: TextStyle(
                   fontSize: 16,
                   fontFamily:
-                      Theme.of(context).textTheme.displayMedium?.fontFamily),
+                      Theme.of(context).textTheme.displayMedium?.fontFamily,),
             ),
             const SizedBox(height: 16),
             Text(
@@ -65,7 +65,7 @@ class ArticleDetailed extends StatelessWidget {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   fontFamily:
-                      Theme.of(context).textTheme.displayMedium?.fontFamily),
+                      Theme.of(context).textTheme.displayMedium?.fontFamily,),
             ),
             const SizedBox(height: 4),
             Text(
@@ -73,7 +73,7 @@ class ArticleDetailed extends StatelessWidget {
               style: TextStyle(
                   fontSize: 16,
                   fontFamily:
-                      Theme.of(context).textTheme.displaySmall?.fontFamily),
+                      Theme.of(context).textTheme.displaySmall?.fontFamily,),
             ),
           ],
         ),
