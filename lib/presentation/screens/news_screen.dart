@@ -20,63 +20,96 @@ class NewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('News'),
-      ),
       body: Builder(
         builder: (context) {
           final stateArticles = context.watch<ArticlesCubit>().state;
           final stateLiked = context.watch<LikedCubit>().state;
-          return ListView.separated(
-            itemCount: stateArticles.length,
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(height: 16);
-            },
-            itemBuilder: (context, index) {
-              final article = stateArticles[index];
-              final title = article.title ?? 'No Title';
-              final description = article.description ?? 'No Description';
-              if (article.title != null) {
-                return Column(
-                  children: [
-                    ListTile(
-                      title: Text(
-                        title,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: Theme.of(context)
-                                .textTheme
-                                .displayMedium
-                                ?.fontFamily),
-                      ),
-                      subtitle: Text(
-                        description,
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: Theme.of(context)
-                                .textTheme
-                                .displaySmall
-                                ?.fontFamily),
-                      ),
-                      onTap: () => _navigateToDetailsPage(article, context),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        stateLiked[article.title] != null
-                            ? Icons.favorite_sharp
-                            : Icons.favorite_border,
-                        color: Colors.red,
-                      ),
-                      onPressed: () =>
-                          context.read<LikedCubit>().changeLikeNews(article),
-                    ),
-                  ],
-                );
-              } else {
-                return null;
-              }
-            },
+          return CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                title: const Text('News'),
+                floating: true,
+                actions: [
+                  IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+              SliverPadding(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                sliver: SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                    var article;
+                    if (stateArticles.length > index) {
+                      article = stateArticles[index];
+                    } else {
+                      article = News(
+                          author: null,
+                          title: null,
+                          url: null,
+                          publishedAt: null,
+                          content: null);
+                    }
+                    final title = article.title ?? 'No Title';
+                    final description = article.description ?? 'No Description';
+                    if (article.title != null) {
+                      return Column(
+                        children: [
+                          ListTile(
+                            title: Text(
+                              title,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: Theme.of(context)
+                                      .textTheme
+                                      .displayMedium
+                                      ?.fontFamily),
+                            ),
+                            subtitle: Text(
+                              description,
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: Theme.of(context)
+                                      .textTheme
+                                      .displaySmall
+                                      ?.fontFamily),
+                            ),
+                            onTap: () =>
+                                _navigateToDetailsPage(article, context),
+                          ),
+                          TweenAnimationBuilder(
+                            duration: Duration(milliseconds: 500),
+                            tween: Tween<double>(
+                              begin:
+                                  stateLiked[article.title] != null ? 0.5 : 1,
+                              end: stateLiked[article.title] != null ? 1 : 0.5,
+                            ),
+                            builder: (BuildContext context, double value,
+                                Widget? child) {
+                              return Opacity(opacity: value, child: child);
+                            },
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.favorite_sharp,
+                                color: Colors.red[500],
+                              ),
+                              onPressed: () => context
+                                  .read<LikedCubit>()
+                                  .changeLikeNews(article),
+                            ),
+                          ),
+                        ],
+                      );
+                    } else {
+                      return null;
+                    }
+                  }),
+                ),
+              ),
+            ],
           );
         },
       ),
